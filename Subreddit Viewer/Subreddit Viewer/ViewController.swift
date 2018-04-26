@@ -8,18 +8,29 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
         let url = URL(string: "https://www.reddit.com/r/ios/hot.json")!
         
-        URLSession.shared.dataTask(with: url) { data, _, _ in
-            guard let data = data else { return }
-            guard let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) else { return }
-            guard let jsonObj = json as? [String: Any] else {return}
+        URLSession.shared.dataTask(with: url) { (data, _, _) in
+            guard let data = data
+                else {
+                    return
+            }
+            guard let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                else {
+                    return
+            }
+            guard let jsonObj = json as? [String: Any]
+                else {
+                    return
+            }
         }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,4 +40,3 @@ class ViewController: UIViewController {
 
 
 }
-

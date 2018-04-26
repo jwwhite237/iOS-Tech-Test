@@ -9,28 +9,40 @@
 import UIKit
 
 class ViewController: UITableViewController {
-
+    
+    var posts = [Post]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         let url = URL(string: "https://www.reddit.com/r/ios/hot.json")!
         
-        URLSession.shared.dataTask(with: url) { (data, _, _) in
-            guard let data = data
-                else {
-                    return
-            }
-            guard let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments)
-                else {
-                    return
-            }
-            guard let jsonObj = json as? [String: Any]
-                else {
-                    return
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if error != nil {
+                print(error!)
+            } else {
+                do {
+                    if let json = try JSONSerialization.jsonObject(with: data!) as? [String: Any],
+                        let jsonObj = json["items"] as? [[String: Any]] {
+                        for object in jsonObj {    // for each object within jsonObj, create aPost (table entry)
+                            if let aPost = object["id"] as? [String: String], let snippet = object["snippet"] as? [String: Any], let snippetTwo = object["snippet"] as? [String: Any] {
+                                    let permaLink = aPost["permalink"] ?? ""
+                                    let author = snippet["author"] as? String ?? ""
+                                    let text = snippet["selftext_html"] as? String ?? ""
+                                    self.posts.append(post)
+                            }
+                        }
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
+                    }
+                } catch {
+                    print(error)
+                }
             }
         }
-        
+        task.resume()
     }
 
     override func didReceiveMemoryWarning() {

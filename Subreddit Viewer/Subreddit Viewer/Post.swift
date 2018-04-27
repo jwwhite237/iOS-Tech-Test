@@ -9,7 +9,10 @@
 import Foundation
 
 struct Post {
+    // hold permalink information from JSON file
     let permalink : String
+    // hold author information from JSON file
     let author : String
+    // hold text body information from JSON file
     let selftext_html : String
 }

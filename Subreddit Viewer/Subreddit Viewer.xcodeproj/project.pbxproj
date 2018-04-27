@@ -14,6 +14,7 @@
 		576FE73720923A5E00F05A51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 576FE73620923A5E00F05A51 /* Assets.xcassets */; };
 		576FE73A20923A5E00F05A51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 576FE73820923A5E00F05A51 /* LaunchScreen.storyboard */; };
 		576FE74520923A5F00F05A51 /* Subreddit_ViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576FE74420923A5F00F05A51 /* Subreddit_ViewerTests.swift */; };
+		57A21A6C2093438300112E6E /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A21A6B2093438300112E6E /* PostTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		576FE74020923A5E00F05A51 /* Subreddit ViewerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Subreddit ViewerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		576FE74420923A5F00F05A51 /* Subreddit_ViewerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subreddit_ViewerTests.swift; sourceTree = "<group>"; };
 		576FE74620923A5F00F05A51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57A21A6B2093438300112E6E /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				57473CF12092768700A99910 /* Post.swift */,
+				57A21A6B2093438300112E6E /* PostTableViewCell.swift */,
 				576FE72F20923A5E00F05A51 /* AppDelegate.swift */,
 				576FE73120923A5E00F05A51 /* ViewController.swift */,
 				576FE73320923A5E00F05A51 /* Main.storyboard */,
@@ -205,6 +208,7 @@
 				57473CF22092768700A99910 /* Post.swift in Sources */,
 				576FE73220923A5E00F05A51 /* ViewController.swift in Sources */,
 				576FE73020923A5E00F05A51 /* AppDelegate.swift in Sources */,
+				57A21A6C2093438300112E6E /* PostTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

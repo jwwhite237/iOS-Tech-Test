@@ -29,7 +29,8 @@ class ViewController: UITableViewController {
                             if let aPost = object["id"] as? [String: String], let snippet = object["snippet"] as? [String: Any], let snippetTwo = object["snippet"] as? [String: Any] {
                                     let permaLink = aPost["permalink"] ?? ""
                                     let author = snippet["author"] as? String ?? ""
-                                    let text = snippet["selftext_html"] as? String ?? ""
+                                    let text = snippetTwo["selftext_html"] as? String ?? ""
+                                    let post = Post(permalink: permaLink, author: author, selftext_html: text)
                                     self.posts.append(post)
                             }
                         }

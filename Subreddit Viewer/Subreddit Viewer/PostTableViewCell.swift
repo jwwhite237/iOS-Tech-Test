@@ -13,8 +13,6 @@ class PostTableViewCell: UITableViewCell {
     // Properties
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var postLabel: UILabel!
-    @IBAction func postButton(_ sender: UIButton) {
-    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

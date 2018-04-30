@@ -1,2 +1,4 @@
 # iOS-Tech-Test
-Repository holds response to the Netsells iOS Tech Test
+Response to Netsells iOS tech test.
+
+Uses basic

@@ -8,15 +8,19 @@
 
 import UIKit
 
+//
 class ViewController: UITableViewController {
     
     // Properties
+    // call Post struct to allow JSON to be parsed
     var posts = [Post]()
     
     // Private methods
     private func loadPosts() {
+        // string to hold URL of r/iOS JSON file
         let url = URL(string: "https://www.reddit.com/r/ios/hot.json")!
         
+        // get data from JSON URL
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if error != nil {
                 print(error!)
@@ -45,18 +49,34 @@ class ViewController: UITableViewController {
         task.resume()
     }
     
+    // create one table section
     override func numberOfSections(in tableView: UITableView) -> Int {
-        
         return 1
-    
     }
     
+    // create amount of cells equal to number of posts
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
     }
     
+    // call cells from identifier
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        
+        // links to storyboard identifier
+        let cellIdentifier = "PostTableViewCell"
+        
+        // add error condition
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? PostTableViewCell else {
+            fatalError("The dequeued cell is not an instance of PostTableViewCell")
+        }
+        
+        // fetch appropriate post from source
+        let post = posts[indexPath.row]
+        
+        cell.authorLabel.text = post.author
+        cell.postLabel.text = post.selftext_html
+        // button to send user to post - needs fixing
+        // cell.toPost(post.permalink)
         
         return cell
     }
